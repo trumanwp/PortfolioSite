@@ -1,12 +1,30 @@
-# React + Vite
+# ![Portfolio](https://img.shields.io/badge/Portfolio-Adam_Bowie-blue) Adam Bowie Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Website Screenshot](/public/portfolioimage.png)  
+*A modern personal portfolio website built with React and Tailwind CSS.*
 
-Currently, two official plugins are available:
+**Live Demo:** [Your Live URL](#)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Hero Section** with animated typing effect using `TextType`  
+- **About Section** with education, experience, and personal bio  
+- **Skills Section** with filterable categories (Frontend, Backend, Tools)  
+- **Projects Section** showcasing featured projects with demo & GitHub links  
+- **Contact Section** with functional email form via EmailJS  
+- **Dark Veil Background** for subtle animation effects  
+- **Responsive Navbar** with mobile dropdown menu  
+- **Scroll-to-Top Button** in footer  
+- **Smooth animations & transitions** throughout the site  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React (Vite)  
+- **Styling:** Tailwind CSS, CSS Variables  
+- **Animations:** Custom CSS keyframes + GSAP (for typing cursor)  
+- **Forms:** EmailJS  
+- **Icons:** Lucide React  
