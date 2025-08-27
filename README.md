@@ -1,6 +1,6 @@
 # ![Portfolio](https://img.shields.io/badge/Portfolio-Adam_Bowie-blue) Adam Bowie Portfolio
 
-![Website Screenshot](./screenshots/hero-section.png)  
+![Website Screenshot](/public/portfolioimage.png)  
 *A modern personal portfolio website built with React and Tailwind CSS.*
 
 **Live Demo:** [Your Live URL](#)
