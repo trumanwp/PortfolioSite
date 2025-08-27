@@ -3,12 +3,12 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Project 1",
-    description: "Description 1",
-    image: "",
-    tags: ["Lang1", "Lang2", "Lang3"],
+    title: "Portfolio Website",
+    description: "I created this very site you are currently on!",
+    image: "portfolioimage.png",
+    tags: ["React", "TailwindCSS"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/trumanwp/PortfolioSite",
   },
   {
     id: 2,
