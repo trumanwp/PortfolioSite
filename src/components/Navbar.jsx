@@ -1,7 +1,9 @@
+// Importing utility for conditional class names and hooks for state & effects
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
+// Define the navigation items and their links
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
@@ -11,9 +13,13 @@ const navItems = [
 ];
 
 export const Navbar = () => {
+  // State for detecting if the user has scrolled
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // State for mobile menu open/close
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Effect to toggle isScrolled when the user scrolls down
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
@@ -22,6 +28,7 @@ export const Navbar = () => {
 
   return (
     <>
+      {/* Main Navbar container */}
       <nav
         className={cn(
           "fixed w-full z-40 transition-all duration-300",
@@ -31,6 +38,7 @@ export const Navbar = () => {
         )}
       >
         <div className="container flex items-center justify-between">
+          {/* Logo / Branding */}
           <a
             className="text-xl font-bold text-primary flex items-center"
             href="#hero"
@@ -40,9 +48,9 @@ export const Navbar = () => {
             </span>
           </a>
 
-          {/* Right side: desktop links + mobile menu button */}
+          {/* Right side navigation: desktop links + mobile menu button */}
           <div className="flex items-center gap-6">
-            {/* Desktop Nav */}
+            {/* Desktop navigation links */}
             <div className="hidden md:flex space-x-8">
               {navItems.map((item, key) => (
                 <a
@@ -55,7 +63,7 @@ export const Navbar = () => {
               ))}
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile menu toggle button */}
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className="md:hidden p-2 text-foreground z-50"
@@ -67,6 +75,7 @@ export const Navbar = () => {
         </div>
       </nav>
 
+      {/* Mobile menu overlay */}
       <div
         className={cn(
           "fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center md:hidden transition-all duration-300",

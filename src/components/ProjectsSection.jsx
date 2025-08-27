@@ -1,10 +1,12 @@
+// Importing icons for links and navigation
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
+// Array of project objects containing all info for each featured project
 const projects = [
   {
     id: 1,
     title: "Portfolio Website",
-    description: "I created this very site you are currently on!",
+    description: "I created this very site you are currently on!", // Hello ! :)
     image: "portfolioimage.png",
     tags: ["React", "TailwindCSS"],
     demoUrl: "#",
@@ -21,11 +23,13 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project 3",
-    description: "Description 3",
-    image: "",
-    tags: ["Lang1", "Lang2", "Lang3"],
-    demoUrl: "#",
+    title: "MoveMates UI/UX Project",
+    description:
+      "Final assignment for my Human-Computer Interaction module. Completed individually and achieved an 83% final mark.",
+    image: "figmacw.png",
+    tags: ["Figma"],
+    demoUrl:
+      "https://www.figma.com/proto/H6T9oMdSm62oKnRbXuXssN/HCI-Coursework--Copy-?node-id=2-2&t=SYmMMVJbQvtrgVz0-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2006%3A3010&show-proto-sidebar=1",
     githubUrl: "#",
   },
 ];
@@ -34,22 +38,26 @@ export const ProjectsSection = () => {
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
+        {/* Section heading */}
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           {" "}
           Featured <span className="text-primary"> Projects </span>
         </h2>
 
+        {/* Section description */}
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Here are some of my recent projects. Each project was carefully
           crafted with attention to detail, performance, and user experience.
         </p>
 
+        {/* Project grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
             <div
               key={key}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
+              {/* Project image with hover zoom effect */}
               <div className="h-48 overflow-hidden">
                 <img
                   src={project.image}
@@ -58,6 +66,7 @@ export const ProjectsSection = () => {
                 />
               </div>
 
+              {/* Tags for technologies used */}
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
@@ -67,10 +76,13 @@ export const ProjectsSection = () => {
                   ))}
                 </div>
 
+                {/* Project title & description */}
                 <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
                 </p>
+
+                {/* Links to demo and GitHub */}
                 <div className="flex justify-between items-center">
                   <div className="flex space-x-3">
                     <a
@@ -94,6 +106,7 @@ export const ProjectsSection = () => {
           ))}
         </div>
 
+        {/* Button linking to overall GitHub profile */}
         <div className="text-center mt-12">
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"

@@ -11,32 +11,40 @@ import TextType from "../components/TextType";
 export const Home = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Dark Veil background */}
+      {/* Dark Veil background overlay for visual effect */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <DarkVeil
-          hueShift={253}
-          noiseIntensity={0}
-          scanlineIntensity={0}
-          speed={0.5}
-          scanlineFrequency={0}
-          warpAmount={4}
+          hueShift={253} // Hue rotation applied to the veil
+          noiseIntensity={0} // Amount of visual noise
+          scanlineIntensity={0} // Scanline overlay effect
+          speed={0.5} // Movement speed of the veil
+          scanlineFrequency={0} // Frequency of scanlines
+          warpAmount={4} // Warping/distortion effect
         />
       </div>
 
-      {/* {Navbar} */}
+      {/* Navigation bar at the top of the page */}
       <Navbar />
 
-      {/* Main Content */}
+      {/* Main page content */}
       <main>
-        {/* <HeroSection /> */}
+        {/* Hero section with animated introduction */}
         <HeroSection />
+
+        {/* About section with personal info and background */}
         <AboutSection />
+
+        {/* Skills section displaying technical proficiencies */}
         <SkillsSection />
+
+        {/* Projects section highlighting featured work */}
         <ProjectsSection />
+
+        {/* Contact section with form and contact info */}
         <ContactSection />
       </main>
 
-      {/* Footer */}
+      {/* Footer with navigation back to top */}
       <Footer />
     </div>
   );

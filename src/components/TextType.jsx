@@ -1,3 +1,5 @@
+// Imported Component for Typing animation text
+
 "use client";
 
 import {
