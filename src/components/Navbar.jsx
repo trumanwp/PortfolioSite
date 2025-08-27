@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -22,78 +21,73 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
-      )}
-    >
-      <div className="container flex items-center justify-between">
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Adam Bowie</span>{" "}
-            Portfolio
-          </span>
-        </a>
-
-        {/* Right side: desktop links + theme toggle + mobile menu button */}
-        <div className="flex items-center gap-6">
-          {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-
-          {/* Inline theme toggle (desktop only) */}
-          <ThemeToggle inline className="hidden md:block" />
-
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="md:hidden p-2 text-foreground z-50"
-            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+    <>
+      <nav
+        className={cn(
+          "fixed w-full z-40 transition-all duration-300",
+          isScrolled
+            ? "py-3 bg-background/80 backdrop-blur-md shadow-xs"
+            : "py-5"
+        )}
+      >
+        <div className="container flex items-center justify-between">
+          <a
+            className="text-xl font-bold text-primary flex items-center"
+            href="#hero"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            <span className="relative z-10">
+              <span className="text-glow text-foreground"> Adam Bowie</span>{" "}
+            </span>
+          </a>
 
-        {/* Mobile overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
-        >
-          {/* Theme toggle in mobile menu */}
-          <ThemeToggle inline className="mb-8" />
+          {/* Right side: desktop links + mobile menu button */}
+          <div className="flex items-center gap-6">
+            {/* Desktop Nav */}
+            <div className="hidden md:flex space-x-8">
+              {navItems.map((item, key) => (
+                <a
+                  key={key}
+                  href={item.href}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
 
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="md:hidden p-2 text-foreground z-50"
+              aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+        </div>
+      </nav>
+
+      <div
+        className={cn(
+          "fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center md:hidden transition-all duration-300",
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        )}
+      >
+        <div className="flex flex-col space-y-8 text-xl">
+          {navItems.map((item, key) => (
+            <a
+              key={key}
+              href={item.href}
+              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
