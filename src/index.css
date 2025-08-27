@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme{
+@theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -18,8 +18,8 @@
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
-  
-@keyframes pulse-subtle {
+
+  @keyframes pulse-subtle {
     0%,
     100% {
       opacity: 1;
@@ -39,7 +39,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes meteor {
     0% {
       transform: rotate(215deg) translateX(0);
@@ -80,7 +80,7 @@
     --border: 217 33% 20%;
   }
 
-  *  {
+  * {
     @apply border-border;
   }
 
@@ -92,11 +92,7 @@
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-
-
 }
-
 
 @utility container {
   margin-inline: auto;
@@ -138,7 +134,7 @@
 @utility cosmic-button {
   @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-        hover:scale-105 active:scale-95;  
+        hover:scale-105 active:scale-95;
 }
 
 @utility star {
@@ -157,9 +153,3 @@
   padding: 0;
   text-align: center;
 }
-
-
-
-
-
-
