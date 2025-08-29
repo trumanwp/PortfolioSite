@@ -14,12 +14,13 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project 2",
-    description: "Description  2",
-    image: "",
-    tags: ["Lang1", "Lang2", "Lang3"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Job Applications Tracker",
+    description:
+      "A full-stack web application built with Spring Boot, React and PostgreSQL that helps users manage job applications efficiently. Deployed with Docker and hosted on Render",
+    image: "jobsite.png",
+    tags: ["Spring Boot", "React", "Docker"],
+    demoUrl: "https://jobapplications-2juz.onrender.com/",
+    githubUrl: "https://github.com/trumanwp/jobApplications",
   },
   {
     id: 3,
