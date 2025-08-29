@@ -6,7 +6,7 @@ const projects = [
   {
     id: 1,
     title: "Portfolio Website",
-    description: "I created this very site you are currently on! The site is made using React and Tailwind. Fully hosted on AWS.", // Hello ! :)
+    description: "A responsive single-page application built with React and Tailwind CSS that showcases my projects and CV. Fully deployed on AWS S3 with CloudFront, featuring a custom domain, secure HTTPS, and automated updates via GitHub Actions.", // Hello ! :)
     image: "portfolioimage.png",
     tags: ["React", "TailwindCSS"],
     demoUrl: "#",
