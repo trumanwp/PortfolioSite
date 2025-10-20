@@ -35,7 +35,7 @@ export const Home = () => {
         <AboutSection />
 
         {/* Skills section displaying technical proficiencies */}
-        <SkillsSection />
+        {/*<SkillsSection />*/}
 
         {/* Projects section highlighting featured work */}
         <ProjectsSection />

@@ -24,14 +24,14 @@ const projects = [
   },
   {
     id: 3,
-    title: "MoveMates UI/UX Project",
+    title: "JPMorganChase Code for Good 2025",
     description:
-      "Final assignment for my Human-Computer Interaction module. Completed individually and achieved an 83% final mark.",
-    image: "figmacw.png",
-    tags: ["Figma"],
+      "Winning project at the JPMorganChase Code For Good 2025 Hackathon. Full-stack web app using React, Tailwind, FastAPI, and PostgreSQL, made to collect and analyze responses from Camphill Blair Drummond's residents, many of whom are non-verbal.",
+    image: "cfg.png",
+    tags: ["React", "TailwindCSS", "FastAPI", "PostgreSQL"],
     demoUrl:
-      "https://www.figma.com/proto/H6T9oMdSm62oKnRbXuXssN/HCI-Coursework--Copy-?node-id=2-2&t=SYmMMVJbQvtrgVz0-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2006%3A3010&show-proto-sidebar=1",
-    githubUrl: "#",
+      "https://youtu.be/OHZjlkinswM",
+    githubUrl: "https://github.com/glasgow25/Team-5",
   },
 ];
 
