@@ -17,9 +17,9 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Portfolio Website",
-    description: "A responsive single-page application built with React and Tailwind CSS that showcases my projects and CV. Fully deployed on AWS S3 with CloudFront, featuring a custom domain, secure HTTPS, and automated updates via GitHub Actions.", // Hello ! :)
+    description: "A responsive single-page application built with React, TypeScript 7, and Tailwind CSS that showcases my projects and CV. Fully deployed on AWS S3 with CloudFront, featuring a custom domain, secure HTTPS, and automated updates via GitHub Actions.", // Hello ! :)
     image: "portfolioimage.png",
-    tags: ["React", "TailwindCSS"],
+    tags: ["React", "TypeScript 7", "TailwindCSS"],
     demoUrl: "#",
     githubUrl: "https://github.com/trumanwp/PortfolioSite",
   },
