@@ -1,10 +1,13 @@
 // Importing icons from lucide-react for visual elements in the cards
 import { Briefcase, Code, User } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 export const AboutSection = () => {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
     // Main About section wrapper with padding and relative positioning
-    <section id="about" className="py-24 px-4 relative">
+    <section id="about" ref={sectionRef} className="py-24 px-4 relative">
       {/* Container to center content and limit maximum width */}
       <div className="container mx-auto max-w-5xl">
         {/* Section title */}
@@ -15,7 +18,7 @@ export const AboutSection = () => {
         {/* Grid layout: left column for description, right column for cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left column: personal description and CTA buttons */}
-          <div className="space-y-6">
+          <div data-reveal className="space-y-6">
             <h3 className="text-2xl font-semibold">Passionate Programmer</h3>
 
             {/* Paragraph about background and interests */}
@@ -47,7 +50,7 @@ export const AboutSection = () => {
           {/* Right column: info cards */}
           <div className="grid grid-cols-1 gap-6">
             {/* Card 1: Role / student status */}
-            <div className="gradient-border p-6 card-hover">
+            <div data-reveal className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 {/* Icon container */}
                 <div className="p-3 rounded-full bg-primary/10">
@@ -68,7 +71,7 @@ export const AboutSection = () => {
             </div>
 
             {/* Card 2: Education */}
-            <div className="gradient-border p-6 card-hover">
+            <div data-reveal className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <User className="h-6 w-6 text-primary" />
@@ -83,7 +86,7 @@ export const AboutSection = () => {
             </div>
 
             {/* Card 3: Employment history */}
-            <div className="gradient-border p-6 card-hover">
+            <div data-reveal className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Briefcase className="h-6 w-6 text-primary" />

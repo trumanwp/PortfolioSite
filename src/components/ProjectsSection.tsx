@@ -1,8 +1,19 @@
 // Importing icons for links and navigation
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  githubUrl: string;
+}
 
 // Array of project objects containing all info for each featured project
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: "Portfolio Website",
@@ -36,8 +47,10 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section id="projects" className="py-24 px-4 relative">
+    <section id="projects" ref={sectionRef} className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         {/* Section heading */}
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -56,6 +69,7 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <div
               key={key}
+              data-reveal
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               {/* Project image with hover zoom effect */}
@@ -71,7 +85,10 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}

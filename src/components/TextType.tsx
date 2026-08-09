@@ -9,8 +9,36 @@ import {
   createElement,
   useMemo,
   useCallback,
+  type ElementType,
+  type HTMLAttributes,
 } from "react";
 import { gsap } from "gsap";
+
+interface VariableSpeed {
+  min: number;
+  max: number;
+}
+
+interface TextTypeProps extends HTMLAttributes<HTMLElement> {
+  text: string | string[];
+  as?: ElementType;
+  typingSpeed?: number;
+  initialDelay?: number;
+  pauseDuration?: number;
+  deletingSpeed?: number;
+  loop?: boolean;
+  className?: string;
+  showCursor?: boolean;
+  hideCursorWhileTyping?: boolean;
+  cursorCharacter?: string;
+  cursorClassName?: string;
+  cursorBlinkDuration?: number;
+  textColors?: string[];
+  variableSpeed?: VariableSpeed;
+  onSentenceComplete?: (sentence: string, index: number) => void;
+  startOnVisible?: boolean;
+  reverseMode?: boolean;
+}
 
 const TextType = ({
   text,
@@ -32,14 +60,14 @@ const TextType = ({
   startOnVisible = false,
   reverseMode = false,
   ...props
-}) => {
+}: TextTypeProps) => {
   const [displayedText, setDisplayedText] = useState("");
   const [currentCharIndex, setCurrentCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(!startOnVisible);
-  const cursorRef = useRef(null);
-  const containerRef = useRef(null);
+  const cursorRef = useRef<HTMLSpanElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
 
   const textArray = useMemo(
     () => (Array.isArray(text) ? text : [text]),
@@ -91,7 +119,7 @@ const TextType = ({
   useEffect(() => {
     if (!isVisible) return;
 
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode

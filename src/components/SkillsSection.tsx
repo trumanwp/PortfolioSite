@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+interface Skill {
+  name: string;
+  category: string;
+}
+
 // Array of skills with associated categories
-const skills = [
+const skills: Skill[] = [
   // Frontend
   { name: "HTML/CSS", category: "frontend" },
   { name: "JavaScript", category: "frontend" },
@@ -52,7 +57,7 @@ export const SkillsSection = () => {
                 "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
                 activeCategory === category
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
+                  : "bg-secondary/70 text-foreground hover:bg-secondary"
               )}
             >
               {category}

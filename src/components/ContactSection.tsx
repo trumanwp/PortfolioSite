@@ -1,5 +1,5 @@
 // Importing icons for contact information and social links
-import { Instagram, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Linkedin, Mail, MapPin, Send } from "lucide-react";
 
 // Utility for conditional classNames
 import { cn } from "@/lib/utils";
@@ -13,6 +13,9 @@ import { useState } from "react";
 // EmailJS library to send form emails
 import emailjs from "@emailjs/browser";
 
+// Scroll-triggered entrance animations
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 export const ContactSection = () => {
   // Destructure toast function from custom hook
   const { toast } = useToast();
@@ -20,13 +23,15 @@ export const ContactSection = () => {
   // State to track whether the form is being submitted
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   // Handles form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault(); // prevent page refresh
     setIsSubmitting(true);
 
     // Grab the form element
-    const form = e.target;
+    const form = e.target as HTMLFormElement;
 
     // Send form data via EmailJS
     emailjs
@@ -48,7 +53,7 @@ export const ContactSection = () => {
           form.reset(); // reset form fields after successful submission
         },
         (error) => {
-          console.error(error.text);
+          console.error(error);
           toast({
             title: "Error",
             description: "Something went wrong. Please try again.",
@@ -61,7 +66,11 @@ export const ContactSection = () => {
 
   return (
     // Main contact section wrapper with padding and a semi-transparent background
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="py-24 px-4 relative bg-secondary/30"
+    >
       <div className="container mx-auto max-w-5xl">
         {/* Section title */}
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -77,7 +86,7 @@ export const ContactSection = () => {
         {/* Grid layout: left column for contact info, right column for contact form */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left column: contact info and social links */}
-          <div className="space-y-8">
+          <div data-reveal className="space-y-8">
             <h3 className="text-2xl font-semibold mb-6">
               {" "}
               Contact Information
@@ -108,9 +117,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Glasgow, Scotland
-                  </a>
+                  <p className="text-muted-foreground">Glasgow, Scotland</p>
                 </div>
               </div>
             </div>
@@ -130,13 +137,10 @@ export const ContactSection = () => {
           </div>
 
           {/* Right column: contact form */}
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div data-reveal className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               {/* Name input */}
               <div>
                 <label
@@ -151,7 +155,7 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="John Smith..."
                 />
               </div>
@@ -170,7 +174,7 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
                 />
               </div>
@@ -188,7 +192,7 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
+                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 />
               </div>
